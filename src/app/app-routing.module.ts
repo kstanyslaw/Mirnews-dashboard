@@ -5,6 +5,7 @@ import { SingupComponent } from './auth/singup/singup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticlesComponent } from './dashboard/articles/articles.component';
+import { EditNewsComponent } from './dashboard/edit-news/edit-news.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,7 @@ const routes: Routes = [
   },
   { path: 'dashboard', component: DashboardComponent,
     children: [
-      { path: '', redirectTo: './articles', pathMatch: 'full' },
+      { path: '', component: EditNewsComponent },
       { path: 'articles', component: ArticlesComponent }
     ]
   }

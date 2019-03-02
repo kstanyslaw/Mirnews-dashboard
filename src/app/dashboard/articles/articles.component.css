@@ -1,4 +1,11 @@
-p {
-    margin-top: 10rem;
-    margin-left: 10rem;
+thead {
+    background-color: #3e75ff!important;
+}
+
+.table-light {
+    color: #32373e;
+}
+
+.table-light:hover {
+    color: #32373e!important;
 }

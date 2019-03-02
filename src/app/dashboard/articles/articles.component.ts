@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-// import { DashboardService } from '../dashboard.service';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-articles',
@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticlesComponent implements OnInit {
 
-  // constructor(private dashboardService: DashboardService) { }
+  constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
-    // this.dashboardService.getNews().subscribe(
-    //   data => console.log(data),
-    // );
+    this.dashboardService.getNews().subscribe(
+      data => console.log(data),
+    );
   }
 
 }
