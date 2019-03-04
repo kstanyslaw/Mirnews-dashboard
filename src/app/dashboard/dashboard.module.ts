@@ -9,6 +9,7 @@ import { DashboardService } from './dashboard.service';
 import { HttpClientModule } from '@angular/common/http';
 import { EditNewsComponent } from './edit-news/edit-news.component';
 import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule
   ]

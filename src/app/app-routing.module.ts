@@ -9,7 +9,8 @@ import { EditNewsComponent } from './dashboard/edit-news/edit-news.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard/articles', pathMatch: 'full' },
+  { path: 'dashboard', redirectTo: '/dashboard/articles', pathMatch: 'full' },
   { path: 'auth', component: AuthComponent,
     children: [
       { path: '', redirectTo: 'singup', pathMatch: 'full' },
@@ -19,7 +20,7 @@ const routes: Routes = [
   },
   { path: 'dashboard', component: DashboardComponent,
     children: [
-      { path: '', component: EditNewsComponent },
+      { path: 'edit', component: EditNewsComponent },
       { path: 'articles', component: ArticlesComponent }
     ]
   }

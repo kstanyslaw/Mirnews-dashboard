@@ -1,34 +1,44 @@
-<form>
+<form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
 
-  <!-- Author & Date -->
-  <div class="row">
-    <div class="col form-group">
-      <label for="formGroupExampleInput">Author</label>
-      <input type="text" class="form-control" id="AuthorInput" placeholder="Author">
+    <!-- Author & Date -->
+    <div class="row">
+        <div class="col form-group">
+            <label for="formGroupExampleInput">Author</label>
+            <input type="text" class="form-control" id="AuthorInput" placeholder="Author" formControlName="author">
+        </div>
+
+        <div class="col form-group">
+            <label for="formGroupExampleInput">Date</label>
+            <input type="datetime-local" class="form-control" placeholder="Date" formControlName="date">
+        </div>
     </div>
 
-    <div class="col form-group">
-        <label for="formGroupExampleInput">Date</label>
-        <input type="datetime-local" class="form-control" placeholder="Date" formControlName="date">
+    <!-- Title -->
+    <div class="row">
+        <div class="col form-group">
+            <label for="formGroupExampleInput">English Title</label>
+            <input type="text" class="form-control" id="EnglishTitle" placeholder="Title in English" formControlName="title_en">
+        </div>
+        <div class="col form-group">
+            <label for="formGroupExampleInput">Russian Title</label>
+            <input type="text" class="form-control" id="RussianTitle" placeholder="Title in Russian" formControlName="title_ru">
+        </div>
     </div>
-  </div>
-    
-  <!-- Title -->
-  <div class="row">
-      <div class="col form-group">
-        <label for="formGroupExampleInput">English Title</label>
-        <input type="text" class="form-control" id="EnglishTitle" placeholder="Title in English">
-      </div>
-      <div class="col form-group">
-          <label for="formGroupExampleInput">Russian Title</label>
-        <input type="text" class="form-control" id="RussianTitle" placeholder="Title in Russian">
-      </div>
+
+    <!-- Article -->
+    <app-article-scrollspy></app-article-scrollspy>
+    <div class="form-group mt-3">
+        <label for="validationTextarea"><h2>Article</h2></label>
+        <textarea class="form-control" placeholder="Article" id="article" formControlName="article_ru" required></textarea>
     </div>
+
+    <button type="button" class="btn btn-success btn-lg" (click)="onSubmit()">Large button</button>
+    <button type="button" class="btn btn-secondary btn-lg ml-2">Large button</button>
+
 </form>
 
-<!-- Article -->
-<app-article-scrollspy></app-article-scrollspy>
-<div class="form-group mt-3">
-    <label for="validationTextarea"><h2>Article</h2></label>
-    <textarea class="form-control" placeholder="Article" id="article" formControlName="article" required></textarea>
-  </div>
+<!-- Default switch -->
+<div class="custom-control custom-switch">
+    <input type="checkbox" class="custom-control-input" id="customSwitches">
+    <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
+</div>
