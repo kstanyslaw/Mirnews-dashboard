@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EditNewsComponent } from './edit-news/edit-news.component';
 import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxEditorModule } from 'ngx-editor';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxEditorModule
   ]
 })
 export class DashboardModule { }

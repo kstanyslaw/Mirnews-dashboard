@@ -43,7 +43,8 @@
             </div>
         </div>
 
-        <textarea class="form-control" placeholder="Article" id="article" formControlName="article_ru" required></textarea>
+        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" formControlName="article_ru"></app-ngx-editor>
+        <!-- <textarea class="form-control" placeholder="Article" id="article" formControlName="article_ru" required></textarea> -->
     </div>
 
     <button type="button" class="btn btn-success btn-lg" (click)="onSubmit()">Large button</button>
