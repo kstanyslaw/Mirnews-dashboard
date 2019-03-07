@@ -27,9 +27,12 @@
     </div>
 
     <!-- Article -->
-    <app-article-scrollspy></app-article-scrollspy>
+    <!-- Article-View -->
+    <app-article-scrollspy [article_ru]="newsForm.value.article_ru"></app-article-scrollspy>
+
+    <!-- Article-Edit -->
     <div class="form-group mt-3">
-        <label for="validationTextarea"><h2>Article</h2>
+        <label for="validationTextarea"><h3>Article</h3>
         </label>
 
         <div class="switch-language">
@@ -43,7 +46,7 @@
             </div>
         </div>
 
-        <textarea class="form-control" placeholder="Article" id="article" formControlName="article_ru" required></textarea>
+        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" formControlName="article_ru"></app-ngx-editor>
     </div>
 
     <button type="button" class="btn btn-success btn-lg" (click)="onSubmit()">Large button</button>
