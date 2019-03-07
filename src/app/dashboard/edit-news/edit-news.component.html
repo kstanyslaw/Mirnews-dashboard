@@ -1,4 +1,5 @@
-<form [formGroup]="newsForm" (ngSubmit)="onSubmit()">
+<h2>Add news</h2>
+<form class="mb-3" [formGroup]="newsForm" (ngSubmit)="onSubmit()">
 
     <!-- Author & Date -->
     <div class="row">
@@ -28,7 +29,20 @@
     <!-- Article -->
     <app-article-scrollspy></app-article-scrollspy>
     <div class="form-group mt-3">
-        <label for="validationTextarea"><h2>Article</h2></label>
+        <label for="validationTextarea"><h2>Article</h2>
+        </label>
+
+        <div class="switch-language">
+            <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline1"><span class="flag-icon flag-icon-us"></span></label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                    <label class="custom-control-label" for="customRadioInline2"><span class="flag-icon flag-icon-ru"></span></label>
+            </div>
+        </div>
+
         <textarea class="form-control" placeholder="Article" id="article" formControlName="article_ru" required></textarea>
     </div>
 
@@ -36,9 +50,3 @@
     <button type="button" class="btn btn-secondary btn-lg ml-2">Large button</button>
 
 </form>
-
-<!-- Default switch -->
-<div class="custom-control custom-switch">
-    <input type="checkbox" class="custom-control-input" id="customSwitches">
-    <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-</div>
