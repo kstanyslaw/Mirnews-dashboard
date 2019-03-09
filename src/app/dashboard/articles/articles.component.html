@@ -7,15 +7,19 @@
             <th scope="col">Date</th>
             <th scope="col">Author</th>
             <th scope="col">Category</th>
+            <th scope="col">E</th>
+            <th scope="col">D</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let article of dashboardService.news; let i=index" [ngClass]="{'table-light': i%2 === 0}">
             <th scope="row"> {{ i + 1 }} </th>
-            <td> {{ article.body[0].title }} </td>
+            <td> {{ article.body[1].title }} </td>
             <td> {{ article.date }} </td>
             <td> {{ article.author }} </td>
             <td> {{ article.categories[0] }} </td>
+            <td>E</td>
+            <td (click)="onDeleteNews(article._id)"><i _ngcontent-c8="" aria-hidden="true" class="fa fa-trash"></i></td>
         </tr>
     </tbody>
 </table>

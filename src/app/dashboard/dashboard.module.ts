@@ -11,6 +11,7 @@ import { EditNewsComponent } from './edit-news/edit-news.component';
 import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
+import { DeleteNewsModalComponent } from './delete-news-modal/delete-news-modal.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgxEditorModule } from 'ngx-editor';
     SidebarComponent,
     ArticlesComponent,
     EditNewsComponent,
-    ArticleScrollspyComponent
+    ArticleScrollspyComponent,
+    DeleteNewsModalComponent
   ],
   providers: [
     DashboardService
