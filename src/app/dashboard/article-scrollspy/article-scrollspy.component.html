@@ -1,31 +1,16 @@
 <div class="bd-example">
     <nav id="navbar-example2" class="navbar navbar-light bg-light">
-      <a class="navbar-brand" href="#">Article preview</a>
-      <!-- Language-switch -->
-      <!-- <div class="custom-control custom-switch">
-        <input type="checkbox" class="custom-control-input" id="customSwitches">
-        <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
-      </div> -->
-
+      <a class="navbar-brand">Article preview</a>
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" href="#fat">@fat</a>
+          <a class="nav-link" [ngClass]="{'active': articlePreviewLang === 'en'}" (click)="articlePreviewLang = 'en'" ><span class="flag-icon flag-icon-us"></span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#mdo">@mdo</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#one">one</a>
-            <a class="dropdown-item" href="#two">two</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item active" href="#three">three</a>
-          </div>
+          <a class="nav-link" [ngClass]="{'active': articlePreviewLang === 'ru'}" (click)="articlePreviewLang = 'ru'" ><span class="flag-icon flag-icon-ru"></span></a>
         </li>
       </ul>
+
     </nav>
-    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example" [innerHTML]="article_ru">
-      
-    </div>
+    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example" *ngIf="articlePreviewLang === 'en'" [innerHTML]="article_en"></div>
+    <div data-spy="scroll" data-target="#navbar-example2" data-offset="0" class="scrollspy-example" *ngIf="articlePreviewLang === 'ru'" [innerHTML]="article_ru"></div>
   </div>

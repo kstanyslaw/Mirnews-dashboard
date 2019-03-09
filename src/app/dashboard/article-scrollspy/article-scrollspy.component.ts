@@ -7,6 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ArticleScrollspyComponent implements OnInit {
 
+  articlePreviewLang = 'en';
+
+  @Input() article_en: string;
   @Input() article_ru: string;
 
   constructor() { }
