@@ -1,55 +1,76 @@
 <h2>Add news</h2>
 <form class="mb-3" [formGroup]="newsForm" (ngSubmit)="onSubmit()">
 
-    <!-- Author & Date -->
-    <div class="row">
-        <div class="col form-group">
-            <label for="formGroupExampleInput">Author</label>
-            <input type="text" class="form-control" id="AuthorInput" placeholder="Author" formControlName="author">
+    <!-- Step-by-Step Navigation -->
+    <ul class="nav nav-pills nav-justified mb-3">
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active': addNewsStep === 1}" (click)="addNewsStep = 1">1. Author, Title, Date</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active': addNewsStep === 2}" (click)="addNewsStep = 2">2. Article Edit</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active': addNewsStep === 3}" (click)="addNewsStep = 3">3. Final preview & confirm</a>
+                </li>
+    </ul>
+
+    <div *ngIf="addNewsStep === 1">
+
+        <!-- Author & Date -->
+        <div class="row">
+            <div class="col form-group">
+                <label for="formGroupExampleInput">Author</label>
+                <input type="text" class="form-control" id="AuthorInput" placeholder="Author" formControlName="author">
+            </div>
+
+            <div class="col form-group">
+                <label for="formGroupExampleInput">Date</label>
+                <input type="datetime-local" class="form-control" placeholder="Date" formControlName="date">
+            </div>
         </div>
 
-        <div class="col form-group">
-            <label for="formGroupExampleInput">Date</label>
-            <input type="datetime-local" class="form-control" placeholder="Date" formControlName="date">
-        </div>
-    </div>
-
-    <!-- Title -->
-    <div class="row">
-        <div class="col form-group">
-            <label for="formGroupExampleInput">English Title</label>
-            <input type="text" class="form-control" id="EnglishTitle" placeholder="Title in English" formControlName="title_en">
-        </div>
-        <div class="col form-group">
-            <label for="formGroupExampleInput">Russian Title</label>
-            <input type="text" class="form-control" id="RussianTitle" placeholder="Title in Russian" formControlName="title_ru">
+        <!-- Title -->
+        <div class="row">
+            <div class="col form-group">
+                <label for="formGroupExampleInput">English Title</label>
+                <input type="text" class="form-control" id="EnglishTitle" placeholder="Title in English" formControlName="title_en">
+            </div>
+            <div class="col form-group">
+                <label for="formGroupExampleInput">Russian Title</label>
+                <input type="text" class="form-control" id="RussianTitle" placeholder="Title in Russian" formControlName="title_ru">
+            </div>
         </div>
     </div>
 
     <!-- Article -->
-    <!-- Article-View -->
-    <app-article-scrollspy [article_ru]="newsForm.value.article_ru"></app-article-scrollspy>
+    <div class="row" *ngIf="addNewsStep === 2">
+        <!-- Article-View -->
+        <app-article-scrollspy class="col-md-6 order-md-last" [article_ru]="newsForm.value.article_ru" [article_en]="newsForm.value.article_en"></app-article-scrollspy>
 
-    <!-- Article-Edit -->
-    <div class="form-group mt-3">
-        <label for="validationTextarea"><h3>Article</h3>
-        </label>
+        <!-- Article-Edit -->
+        <div class="col-md-6 order-md-first form-group">
+            <nav id="navbar-example2" class="navbar navbar-light bg-light">
+                <a class="navbar-brand">Article Edit</a>
+                <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active': articleEditLang === 'en'}" (click)="articleEditLang = 'en'" ><span class="flag-icon flag-icon-us"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active': articleEditLang === 'ru'}" (click)="articleEditLang = 'ru'" ><span class="flag-icon flag-icon-ru"></span></a>
+                </li>
+                </ul>
+        
+            </nav>
 
-        <div class="switch-language">
-            <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline1"><span class="flag-icon flag-icon-us"></span></label>
-            </div>
-            <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline2"><span class="flag-icon flag-icon-ru"></span></label>
-            </div>
+            <app-ngx-editor [placeholder]="'Enter English text here...'" [spellcheck]="true" formControlName="article_en" *ngIf="articleEditLang === 'en'"></app-ngx-editor>
+            <app-ngx-editor [placeholder]="'Enter Russian text here...'" [spellcheck]="true" formControlName="article_ru" *ngIf="articleEditLang === 'ru'"></app-ngx-editor>
         </div>
 
-        <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" formControlName="article_ru"></app-ngx-editor>
     </div>
 
-    <button type="button" class="btn btn-success btn-lg" (click)="onSubmit()">Large button</button>
-    <button type="button" class="btn btn-secondary btn-lg ml-2">Large button</button>
+    <div *ngIf="addNewsStep === 3">
+        <button type="button" class="btn btn-success btn-lg" (click)="onSubmit()">Large button</button>
+        <button type="button" class="btn btn-secondary btn-lg ml-2">Large button</button>
+    </div>
 
 </form>

@@ -1,4 +1,3 @@
-div.switch-language {
-    display: inline-block;
-    margin-left: 2rem;
+ul.nav.nav-pills {
+    margin-right: auto;
 }
