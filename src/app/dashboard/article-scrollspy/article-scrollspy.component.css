@@ -13,3 +13,7 @@
     border-width: 1px;
     border-radius: .25rem;
 }
+
+ul.nav.nav-pills {
+    margin-right: auto;
+}
