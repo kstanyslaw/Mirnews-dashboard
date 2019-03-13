@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { News } from 'src/app/models/news';
-import { Body } from 'src/app/models/single-language-news-body';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
@@ -20,47 +19,29 @@ export class EditNewsComponent implements OnInit {
   constructor(private dashboardService: DashboardService) { }
 
   onSubmit() {
-    var article_en = new Body(
-      'en',
-      this.newsForm.value.title_en,
-      this.newsForm.value.article_en
-    );
-      
-    var article_ru = new Body(
-      'ru',
-      this.newsForm.value.title_ru,
-      this.newsForm.value.article_ru
-    );
-        
+    var title = {
+      en: this.newsForm.value.title_en,
+      ru: this.newsForm.value.title_ru
+    };
+    var article = {
+      en: this.newsForm.value.article_en,
+      ru: this.newsForm.value.article_ru
+    };
+    var preview = {
+      en: null,
+      ru: null,
+      img: null
+    };
+
     var news = new News(
       null,
       this.newsForm.value.author,
       this.newsForm.value.date,
-      [
-        article_en,
-        article_ru
-      ],
-      null
-
-      // 'test',
-      // new Date(),
-      // [
-      //   {
-      //     language: 'ru',
-      //     title: 'title_ru',
-      //     article: 'article_ru'
-      //   },
-      //   {
-      //     language: 'en',
-      //     title: 'title_en',
-      //     article: 'article_en'
-      //   }
-      // ],
-      // null
+      title,
+      article,
+      preview
     )
-    this.dashboardService.addNews(news).subscribe(
-      // data => console.log(data)
-    );
+    this.dashboardService.addNews(news).subscribe();
   }
 
   ngOnInit() {
