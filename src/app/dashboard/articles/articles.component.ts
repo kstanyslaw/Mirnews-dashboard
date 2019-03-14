@@ -17,9 +17,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dashboardService.getNews().subscribe(
-      data => console.log(data),
-    );
+    this.dashboardService.getNews().subscribe();
   }
 
 }

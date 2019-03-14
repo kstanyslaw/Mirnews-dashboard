@@ -46,10 +46,20 @@ export class DashboardService {
         'Content-Type': 'application/json'
       })
     }
-    return this.httpClient.get<News[]>('http://localhost:3000/news', httpOptins).pipe(
+    return this.httpClient.get<Response>('http://localhost:3000/news', httpOptins).pipe(
       tap(
-        data => this.news = data
+        data => this.news = data.docs
       )
     );
   }
+}
+
+class Response {
+  constructor(
+    public docs: Array<News>,
+    public total: number,
+    public limit: number,
+    public page: number,
+    public pages: number
+  ) {}
 }
