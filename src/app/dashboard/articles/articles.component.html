@@ -15,7 +15,7 @@
         <tr *ngFor="let article of dashboardService.news; let i=index" [ngClass]="{'table-light': i%2 === 0}">
             <th scope="row"> {{ i + 1 }} </th>
             <td> {{ article.title.en }} </td>
-            <td> {{ article.date }} </td>
+            <td> {{ article.date | date: 'd.MM.yyyy, H:mm' }} </td>
             <td> {{ article.author }} </td>
             <td> {{ article.category[0] }} </td>
             <td>E</td>

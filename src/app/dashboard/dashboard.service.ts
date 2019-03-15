@@ -19,7 +19,6 @@ export class DashboardService {
   constructor(private httpClient: HttpClient) { }
 
   addNews(news: News) {
-    console.log(news);
     const httpOptins = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
