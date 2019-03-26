@@ -43,7 +43,8 @@ export class DashboardService {
     const httpOptins = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-      })
+      }),
+      params: { component: 'dashboard', limit: '100'}
     }
     return this.httpClient.get<Response>('http://localhost:3000/news', httpOptins).pipe(
       tap(

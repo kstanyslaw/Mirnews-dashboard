@@ -1,5 +1,5 @@
 <button type="button" class="btn btn-outline-secondary btn-lg btn-block mb-3" [routerLink]="[ '/dashboard/edit']">+ Add News</button>
-<table class="table table-hover table-dark">
+<table class="table table-sm table-hover table-dark">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -17,7 +17,7 @@
             <td> {{ article.title.en }} </td>
             <td> {{ article.date | date: 'd.MM.yyyy, H:mm' }} </td>
             <td> {{ article.author }} </td>
-            <td> {{ article.category[0] }} </td>
+            <td> {{ article.category[0].en }} </td>
             <td>E</td>
             <td (click)="onDeleteNews(article._id)"><i _ngcontent-c8="" aria-hidden="true" class="fa fa-trash"></i></td>
         </tr>
