@@ -1,0 +1,61 @@
+.blog-header {
+    line-height: 1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.blog-header-logo {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    font-size: 2.25rem;
+}
+
+a.p-2:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.dropdown-toggle {
+    border-color: #e6e6e6;
+    color: #6c757d!important;
+}
+
+.dropdown-toggle:hover {
+    color: white!important;
+}
+
+.dropdown-toggle::after {
+    color: #e6e6e6;
+}
+
+.dropdown-item {
+    color: #6c757d!important;
+}
+
+.dropdown-item:hover {
+    background-color: #e6e6e6;
+}
+
+.card {
+    -webkit-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.75);
+}

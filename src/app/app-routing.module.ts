@@ -6,6 +6,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ArticlesComponent } from './dashboard/articles/articles.component';
 import { EditNewsComponent } from './dashboard/edit-news/edit-news.component';
+import { HomepageComponent } from './dashboard/homepage/homepage.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent,
     children: [
       { path: 'edit', component: EditNewsComponent },
-      { path: 'articles', component: ArticlesComponent }
+      { path: 'articles', component: ArticlesComponent },
+      { path: 'homepage', component: HomepageComponent }
     ]
   }
 ];

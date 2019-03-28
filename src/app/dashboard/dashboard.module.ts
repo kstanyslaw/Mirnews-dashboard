@@ -12,6 +12,7 @@ import { ArticleScrollspyComponent } from './article-scrollspy/article-scrollspy
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
 import { DeleteNewsModalComponent } from './delete-news-modal/delete-news-modal.component';
+import { HomepageModule } from './homepage/homepage.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DeleteNewsModalComponent } from './delete-news-modal/delete-news-modal.
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxEditorModule
+    NgxEditorModule,
+    HomepageModule
   ]
 })
 export class DashboardModule { }
