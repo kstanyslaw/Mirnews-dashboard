@@ -1,0 +1,16 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+}
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+}
+
+svg {
+    min-width: 14.24rem!important;
+    max-width: 14.24rem!important;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from "rxjs/operators";
 import { News } from '../models/news';
 import { Observable } from 'rxjs';
+import { Category } from '../models/category';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +52,16 @@ export class DashboardService {
         data => this.news = data.docs
       )
     );
+  }
+
+  getCategoriesList() {
+    const httpOptins = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      params: { component: 'dashboard'}
+    }
+    return this.httpClient.get<Category[]>('http://localhost:3000/category', httpOptins)
   }
 }
 

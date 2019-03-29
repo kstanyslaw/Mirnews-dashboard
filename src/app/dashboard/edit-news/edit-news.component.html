@@ -14,6 +14,7 @@
                 </li>
     </ul>
 
+    <!-- STEP 1 -->
     <div *ngIf="addNewsStep === 1">
 
         <!-- Author & Date -->
@@ -40,10 +41,22 @@
                 <input type="text" class="form-control" id="RussianTitle" placeholder="Title in Russian" formControlName="title_ru">
             </div>
         </div>
+
+        <!-- Category -->
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button">
+                {{ selectedCategory}}
+            </button>
+            <ul class="dropdown-menu show">
+                <li class="dropdown-item" *ngFor="let category of categories"> {{  category.en }} </li>
+            </ul>
+        </div>
+
     </div>
 
-    <!-- Article -->
+    <!-- STEP 2 -->
     <div class="row" *ngIf="addNewsStep === 2">
+    <!-- Article -->
         <!-- Article-View -->
         <app-article-scrollspy class="col-md-6 order-md-last" [article_ru]="newsForm.value.article_ru" [article_en]="newsForm.value.article_en"></app-article-scrollspy>
 
@@ -68,7 +81,11 @@
 
     </div>
 
+    <!-- STEP 3 -->
     <div *ngIf="addNewsStep === 3">
+        <app-newscard-preview></app-newscard-preview>
+        <hr>
+        <app-related-preview></app-related-preview>
         <button type="button" class="btn btn-success btn-lg" (click)="onSubmit()">Add News</button>
         <button type="button" class="btn btn-secondary btn-lg ml-2">Save to draft</button>
     </div>

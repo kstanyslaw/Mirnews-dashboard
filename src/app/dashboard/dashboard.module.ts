@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
 import { DeleteNewsModalComponent } from './delete-news-modal/delete-news-modal.component';
 import { HomepageModule } from './homepage/homepage.module';
+import { NewscardPreviewComponent } from './edit-news/newscard-preview/newscard-preview.component';
+import { RelatedPreviewComponent } from './edit-news/related-preview/related-preview.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { HomepageModule } from './homepage/homepage.module';
     ArticlesComponent,
     EditNewsComponent,
     ArticleScrollspyComponent,
-    DeleteNewsModalComponent
+    DeleteNewsModalComponent,
+    NewscardPreviewComponent,
+    RelatedPreviewComponent
   ],
   providers: [
     DashboardService
