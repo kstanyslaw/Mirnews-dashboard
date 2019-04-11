@@ -1,0 +1,17 @@
+<div class="form-group" [formGroup]="newsForm">
+    <nav id="navbar-example2" class="navbar navbar-light bg-light">
+        <a class="navbar-brand">Article Edit</a>
+        <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': articleEditLang === 'en'}" (click)="articleEditLang = 'en'" ><span class="flag-icon flag-icon-us"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active': articleEditLang === 'ru'}" (click)="articleEditLang = 'ru'" ><span class="flag-icon flag-icon-ru"></span></a>
+        </li>
+        </ul>
+
+    </nav>
+
+    <app-ngx-editor [placeholder]="'Enter English text here...'" [spellcheck]="true" [formControlName]="'article_en'" *ngIf="articleEditLang === 'en'"></app-ngx-editor>
+    <app-ngx-editor [placeholder]="'Enter Russian text here...'" [spellcheck]="true" [formControlName]="'article_ru'" *ngIf="articleEditLang === 'ru'"></app-ngx-editor>
+</div>

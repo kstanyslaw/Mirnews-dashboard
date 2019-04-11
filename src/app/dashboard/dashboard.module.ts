@@ -15,6 +15,7 @@ import { DeleteNewsModalComponent } from './delete-news-modal/delete-news-modal.
 import { HomepageModule } from './homepage/homepage.module';
 import { NewscardPreviewComponent } from './edit-news/newscard-preview/newscard-preview.component';
 import { RelatedPreviewComponent } from './edit-news/related-preview/related-preview.component';
+import { ArticleEditComponent } from './edit-news/article-edit/article-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RelatedPreviewComponent } from './edit-news/related-preview/related-pre
     ArticleScrollspyComponent,
     DeleteNewsModalComponent,
     NewscardPreviewComponent,
-    RelatedPreviewComponent
+    RelatedPreviewComponent,
+    ArticleEditComponent
   ],
   providers: [
     DashboardService
