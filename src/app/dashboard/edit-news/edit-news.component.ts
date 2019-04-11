@@ -78,4 +78,6 @@ export class EditNewsComponent implements OnInit {
       data => ( this.categories = data )
     );
   }
+
+  
 }
