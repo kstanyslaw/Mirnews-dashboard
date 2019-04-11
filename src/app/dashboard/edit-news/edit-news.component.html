@@ -83,6 +83,8 @@
 
     <!-- STEP 3 -->
     <div *ngIf="addNewsStep === 3">
+        <p *ngFor="let blockquote of getBlockquotes(x)"> {{blockquote}} </p>
+        <hr>
         <app-newscard-preview></app-newscard-preview>
         <hr>
         <app-related-preview></app-related-preview>
