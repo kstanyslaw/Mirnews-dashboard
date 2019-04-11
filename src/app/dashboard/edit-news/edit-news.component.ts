@@ -21,6 +21,8 @@ export class EditNewsComponent implements OnInit {
 
   addNewsStep = 1;
 
+  x:string = '<p>Столицу Казахстана официально переименовали в Нур-Султан.</p> <blockquote>На этой неделе с таким предложением выступил президент Касым-Жомарт Токаев после церемонии принесения присяги на посту нового главы государства.</blockquote> <p>Инициативу главы государства тут же поддержал казахстанские законодатели. На официальном сайте размещен указ главы республики. Согласно тексту документа нововведения вступают в силу с момента публикации - 23 марта. Помимо этого президент внес изменения в Конституцию Казахстана. Накануне против переименования столицы вышло несколько десятков человек по всей стране: более полусотни митингующих были задержаны в Астане и около двух десятков в Алмате. Назарбаев объявил об отставке 19 марта, полномочия он передал спикеру сената парламента. Очередные выборы запланированы на 2020 год.</p>'
+
   constructor(private dashboardService: DashboardService) { }
 
   onSubmit() {
@@ -54,14 +56,16 @@ export class EditNewsComponent implements OnInit {
     html.innerHTML = article;
     var blockuotes = [];
     var blockuotesHTML = html.getElementsByTagName('blockquote');
-    blockuotes[0] = article.replace(/(([^\s]+\s\s*){20})(.*)/,"$1…");
-    for (let i = 1; i < blockuotesHTML.length + 1; i++) {
+    // blockuotes[0] = article.replace(/(([^\s]+\s\s*){20})(.*)/,"$1…");
+    for (let i = 0; i < blockuotesHTML.length; i++) {
       blockuotes[i] = blockuotesHTML[i].innerText;      
     }
+    blockuotes.unshift(html.innerText.replace(/(([^\s]+\s\s*){20})(.*)/,"$1…"));
     return blockuotes;
   }
 
   ngOnInit() {
+    console.log(this.getBlockquotes(this.x)[0]);
     this.newsForm = new FormGroup({
       author: new FormControl(null, Validators.required),
       date: new FormControl(null, Validators.required),
@@ -75,4 +79,6 @@ export class EditNewsComponent implements OnInit {
       data => ( this.categories = data )
     );
   }
+
+  
 }
