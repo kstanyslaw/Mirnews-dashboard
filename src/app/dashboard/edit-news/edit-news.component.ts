@@ -54,13 +54,13 @@ export class EditNewsComponent implements OnInit {
   getBlockquotes(article: string) {
     var html = document.createElement('html');
     html.innerHTML = article;
-    var blockuotes = [];
-    var blockuotesHTML = html.getElementsByTagName('blockquote');
-    for (let i = 0; i < blockuotesHTML.length; i++) {
-      blockuotes[i] = blockuotesHTML[i].innerText;      
+    var blockquotes = [];
+    var blockquotesHTML = html.getElementsByTagName('blockquote');
+    for (let i = 0; i < blockquotesHTML.length; i++) {
+      blockquotes[i] = blockquotesHTML[i].innerText;      
     }
-    blockuotes.unshift(html.innerText.replace(/(([^\s]+\s\s*){20})(.*)/,"$1…"));
-    return blockuotes;
+    blockquotes.unshift(html.innerText.replace(/(([^\s]+\s\s*){20})(.*)/,"$1…"));
+    return blockquotes;
   }
 
   ngOnInit() {
@@ -78,4 +78,6 @@ export class EditNewsComponent implements OnInit {
       data => ( this.categories = data )
     );
   }
+
+  
 }
